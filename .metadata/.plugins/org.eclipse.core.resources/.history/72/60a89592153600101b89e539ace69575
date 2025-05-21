@@ -1,0 +1,12 @@
+package com.company.hp.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.company.hp.dto.ArticleDataDto;
+
+@Mapper
+public interface ArticlesMapper {
+	
+	List<ArticleDataDto> getArticleData();
+
+}

@@ -1,0 +1,21 @@
+package com.company.hp.entity;
+
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Data
+@Component
+public class AdminData {
+	
+	private int adminId;
+	
+	private String username;
+	
+	private String password;
+	
+	private String email;
+	
+	private int isDeleted;
+
+}

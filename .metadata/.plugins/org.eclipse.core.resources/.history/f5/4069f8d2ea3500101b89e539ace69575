@@ -1,0 +1,7 @@
+package com.company.hp.entity;
+
+@Data
+@Component
+public class AdminData {
+
+}

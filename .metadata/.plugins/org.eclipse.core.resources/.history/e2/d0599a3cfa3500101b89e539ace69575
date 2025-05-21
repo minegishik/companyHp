@@ -1,0 +1,6 @@
+package com.company.hp.cotroller;
+
+@Controller
+public class HomeController {
+
+}

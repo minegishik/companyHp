@@ -1,0 +1,29 @@
+package com.company.hp.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.company.hp.dto.ArticleDataDto;
+import com.company.hp.mapper.ArticlesMapper;
+
+@Service
+public class ArticleService {
+	
+	@Autowired
+	private ArticlesMapper articlesMapper;
+	
+	/**
+	 * 記事情報全件取得
+	 * @return
+	 */
+	public List<ArticleDataDto> getAllArticle(){
+		
+		return articlesMapper.getAllArticleData();
+	}
+	
+	
+	
+
+}

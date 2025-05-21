@@ -1,0 +1,6 @@
+package com.company.hp.mapper;
+
+@Mapper
+public class ArticlesMapper {
+
+}

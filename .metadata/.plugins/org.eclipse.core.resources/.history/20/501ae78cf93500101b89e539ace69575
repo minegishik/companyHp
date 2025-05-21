@@ -1,0 +1,5 @@
+package com.company.hp.service;
+
+public class LoginService {
+
+}

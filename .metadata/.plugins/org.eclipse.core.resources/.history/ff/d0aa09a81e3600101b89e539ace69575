@@ -1,0 +1,5 @@
+package com.company.hp.mapper;
+
+public class LoginMapper {
+
+}
