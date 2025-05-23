@@ -1,6 +1,7 @@
 package com.company.hp.dto;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 import lombok.Data;
 
@@ -26,4 +27,10 @@ public class ArticleDataDto {
 	private LocalDateTime updatedAt;
 	//公開日
 	private LocalDateTime publishedAt;
+	
+	//公開日が一週間以内の記事にNEW表示を行う
+	public boolean isNew() {
+        return publishedAt != null &&
+               ChronoUnit.DAYS.between(publishedAt, LocalDateTime.now()) <= 7;
+    }
 }

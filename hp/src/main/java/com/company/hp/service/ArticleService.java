@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.hp.dto.ArticleDataDto;
-import com.company.hp.mapper.ArticlesMapper;
+import com.company.hp.mapper.ArticleMapper;
 
 @Service
 public class ArticleService {
 	
 	@Autowired
-	private ArticlesMapper articlesMapper;
+	private ArticleMapper articleMapper;
 	
 	/**
 	 * 記事情報全件取得
@@ -20,17 +20,31 @@ public class ArticleService {
 	 */
 	public List<ArticleDataDto> getAllArticle(){
 		
-		return articlesMapper.getAllArticleData();
+		return articleMapper.getAllArticleData();
 	}
 	
 	
-	
+	/**
+	 * 公開中記事のみ取得
+	 * @param isPublished
+	 * @param isDeleted
+	 * @return
+	 */
 	public List<ArticleDataDto> getArticle(int isPublished, int isDeleted){
 			
-		return articlesMapper.getArticleData(isPublished, isDeleted);
+		return articleMapper.getArticleData(isPublished, isDeleted);
 	}
 	
 	
+	/**
+	 * 一般ユーザー選択記事情報取得
+	 * @param articleId
+	 * @return
+	 */
+	public ArticleDataDto findArticleData(int articleId) {
+		
+		return articleMapper.findArticleData(articleId);
+	}
 	
 
 }
