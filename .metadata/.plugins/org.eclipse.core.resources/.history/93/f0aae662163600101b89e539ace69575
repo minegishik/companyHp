@@ -1,7 +1,0 @@
-package com.company.hp.service;
-
-@Service
-public class ArticleService {
-	
-
-}

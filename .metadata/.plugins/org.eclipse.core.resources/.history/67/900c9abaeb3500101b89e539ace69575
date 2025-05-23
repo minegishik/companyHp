@@ -1,6 +1,0 @@
-package com.company.hp.dto;
-
-@Data
-public class ArticleDataDto {
-
-}

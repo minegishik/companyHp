@@ -1,8 +1,0 @@
-package com.company.hp.entity;
-
-import lombok.Data;
-
-@Data
-public class ArticleData {
-
-}

@@ -1,9 +1,0 @@
-package com.company.hp.entity;
-
-import org.springframework.stereotype.Component;
-
-@Data
-@Component
-public class AdminData {
-
-}
