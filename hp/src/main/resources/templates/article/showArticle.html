@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>一般ユーザー用記事閲覧画面</title>
+	<style>
+		.article-container {
+			margin-top: 100px;
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			padding: 1em;
+			max-width: 400px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="header-wrapper">
+		<div th:insert="~{common/header}"></div>
+	</div>
+
+	<div class="article-container">
+		<h2>[[${article.title}]]</h2>
+		<small th:text="${#temporals.format(article.publishedAt, 'yyyy年MM月dd日')}"></small>
+
+		<p>[[${article.content}]]</p>
+
+
+
+	</div>
+
+</body>
+
+</html>

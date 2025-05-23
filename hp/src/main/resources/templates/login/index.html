@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+</head>
+<body>
+	ここがログイン画面
+	
+	<fieldset>
+		<form th:action="@{/login/admin}" th:method="post" th:object="${form}">
+			<div class="form-froup">
+				<label>メールアドレス：</label>
+				<input type="text" th:field="*{email}" />
+			</div>
+			<div class="form-froup">
+				<label>パスワード：</label>
+				<input type="password" th:field="*{password}" />
+			</div>
+			
+			<div class="form-froup">
+				<input type="submit" value="ログイン" />
+			</div>
+
+		</form>
+	</fieldset>
+
+</body>
+</html>
+			</div>
+			
+		</form>
+	</fieldset>
+
+</body>
+</html>

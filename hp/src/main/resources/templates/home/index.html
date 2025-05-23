@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>企業HP TOP画面</title>
+	<meta charset="UTF-8">
+	<title>企業HP TOP画面</title>
+	<style>
+		.article-container {
+			margin-top: 100px;
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			padding: 1em;
+			max-width: 400px;
+		}
+
+		.article-card {
+			border: 1px solid #ccc;
+			padding: 10px;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+	</style>
 </head>
+
 <body>
 	
-	こんにちは
+	<div class="header-wrapper">
+		<div th:insert="~{common/header}"></div>
+	</div>
+
+
+
+	<div th:if="${articleList} != null" class="article-container">
+		<div th:each="article : ${articleList}" class="article-card"
+			th:if="${article.publishedAt.isAfter(T(java.time.LocalDateTime).now().minusWeeks(2))}">
+			<div style="display: flex; align-items: baseline; gap: 1em;">
+				<small th:if="${article.new}" style="color: red; font-weight: bold; margin-left: 0.5em;">NEW</small>
+				<h2 style="margin: 0;">
+					<a th:href="@{/article/show/{id}(id=${article.articleId})}" th:text="${article.title}">記事タイトル</a>
+				</h2>
+				<small th:text="${#temporals.format(article.publishedAt, 'yyyy年MM月dd日')}">2025年05月22日</small>
+			</div>
+
+		</div>
+
+
+
+	</div>
 
 </body>
+
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<style>
+	.article-container {
+		margin-top: 100px;
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		padding: 1em;
+		max-width: 400px;
+	}
+</style>
+
+<body>
+
+	<div class="header-wrapper">
+		<div th:insert="~{common/header}"></div>
+	</div>
+
+	<div class="article-container">
+
+	<th:block th:if="${loginUser == null}">
+		<div th:each="article : ${articleList}">
+			<div style="display: flex; align-items: baseline; gap: 1em;">
+				<h2 style="margin: 0;">
+					<a th:href="@{/article/show/{id}(id=${article.articleId})}"
+					   th:text="${article.title}">記事タイトル</a>
+				</h2>
+				<small th:text="${#temporals.format(article.publishedAt, 'yyyy年MM月dd日')}">日付</small>
+			</div>
+		</div>
+	</th:block>
+
+	<th:block th:if="${loginUser != null}">
+		<div th:each="adminArticle : ${adminArticleList}">
+			<div style="display: flex; align-items: baseline; gap: 1em;">
+				<h2 style="margin: 0;">
+					<a th:href="@{/article/show/{id}(id=${adminArticle.articleId})}"
+					   th:text="${adminArticle.title}">記事タイトル</a>
+				</h2>
+				<small th:text="${#temporals.format(adminArticle.publishedAt, 'yyyy年MM月dd日')}">日付</small>
+			</div>
+		</div>
+	</th:block>
+
+</div>
+
+	
+	
+
+
+</body>
+
+</html>

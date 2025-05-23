@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>企業HPメニューヘッダー画面</title>
+</head>
+<style>
+	body {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+	}
+
+	.header-wrapper {
+		top: 0;
+		width: 100%;
+		max-width: 100%;
+		margin-bottom: 20px;
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 100px;
+	}
+
+	ul {
+		padding-left: 0;
+	}
+
+	.menu-list {
+		display: flex;
+		list-style: none;
+		gap: 20px;
+		width: 100%;
+
+
+	}
+</style>
+
+<body>
+	<header th:fragment="header">
+
+		<ul class="menu-list">
+			<li>
+				<a href="/hp/">トップへ</a>
+			</li>
+			<li>
+				<a href="/hp/article/list">記事一覧へ</a>
+			</li>
+			<li>
+				<a href="/hp/company/profile">会社概要</a>
+			</li>
+			<li>
+				<a href="/hp/other/faq">お問い合わせ</a>
+			</li>
+		</ul>
+		
+		<!-- 管理者ログイン時のみ表示 -->
+		<form th:if="${loginUser != null}" th:action="@{/login/logout}" method="post" class="logout-form">
+			<button type="submit" class="logout-btn">ログアウト</button>
+		</form>
+
+
+
+	</header>
+</body>
+
+</html>

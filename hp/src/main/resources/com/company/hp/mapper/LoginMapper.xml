@@ -9,6 +9,14 @@
 			admin_id = #{adminId}
 			AND is_deleted = 0;
 	</select>
+	
+	<select id="findLoginUser" resultType="com.company.hp.entity.AdminData">
+		SELECT *
+		FROM admins
+		WHERE
+			email = #{email}
+			AND password = #{password}
+	</select>
 
 
 
