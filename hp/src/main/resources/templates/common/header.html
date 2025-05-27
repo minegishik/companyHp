@@ -55,7 +55,9 @@
 				<a href="/hp/other/faq">お問い合わせ</a>
 			</li>
 		</ul>
+
 		
+
 		<!-- 管理者ログイン時のみ表示 -->
 		<form th:if="${loginUser != null}" th:action="@{/login/logout}" method="post" class="logout-form">
 			<button type="submit" class="logout-btn">ログアウト</button>
