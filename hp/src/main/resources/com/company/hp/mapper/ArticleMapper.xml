@@ -13,6 +13,7 @@
 			 is_deleted,
 			 published_at
 		FROM articles
+		WHERE is_deleted = 0
 	</select>
 	
 	<select id="getArticleData" resultType="com.company.hp.dto.ArticleDataDto">
@@ -26,6 +27,7 @@
 		FROM articles
 		WHERE is_published = 1
 			  AND is_deleted = 0
+			  AND published_at &lt;= NOW()
 		ORDER BY published_at DESC
 	</select>
 	
@@ -39,5 +41,24 @@
 		WHERE
 			article_id = #{articleId}
 	</select>
-
+	
+	<update id="editArticle" parameterType="com.company.hp.dto.ArticleDataDto">
+		UPDATE articles
+		SET
+			title = #{title},
+			content = #{content},
+			is_published = #{isPublished},
+<!--			is_deleted = #{isDeleted},-->
+			published_at = #{publishedAt}
+		WHERE
+			article_id = #{articleId}
+	</update>
+	
+	<update id="deleteArticle" parameterType="com.company.hp.dto.ArticleDataDto">
+		UPDATE articles
+		SET
+			is_deleted = 1
+		WHERE
+			article_id = #{articleId}
+	</update>
 </mapper>
