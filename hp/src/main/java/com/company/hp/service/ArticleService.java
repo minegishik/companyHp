@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.hp.dto.ArticleDataDto;
+import com.company.hp.form.ArticleForm;
 import com.company.hp.mapper.ArticleMapper;
 
 @Service
@@ -44,6 +45,36 @@ public class ArticleService {
 	public ArticleDataDto findArticleData(int articleId) {
 		
 		return articleMapper.findArticleData(articleId);
+	}
+	
+	
+	/**
+	 * 記事情報編集更新
+	 */
+	public void editArticle(ArticleForm form, int articleId) {
+		
+		ArticleDataDto dto = new ArticleDataDto();
+		
+		dto.setArticleId(articleId);
+		dto.setTitle(form.getTitle());
+		dto.setContent(form.getContent());
+		dto.setPublishedAt(form.getPublishedAt());
+		dto.setIsPublished(form.getIsPublished());
+		
+		articleMapper.editArticle(dto);
+	}
+	
+	
+	/**
+	 * 記事上夫雄論理削除
+	 */
+	public void deleteArticle(int articleId) {
+		
+		ArticleDataDto dto = new ArticleDataDto();
+		dto.setArticleId(articleId);
+		
+		articleMapper.deleteArticle(dto);
+		
 	}
 	
 
