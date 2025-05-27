@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>記事閲覧画面</title>
+	<style>
+		.article-container {
+			margin-top: 100px;
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			padding: 1em;
+			max-width: 400px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="header-wrapper">
+		<div th:insert="~{common/header}"></div>
+	</div>
+
+
+
+	<div class="article-container">
+		
+		<div th:if="${loginUser} != null">
+			<div class="article-button-container">
+				<form th:action="@{/article/edit/{id}(id=${article.articleId})}" method="get">
+					<button type="submit">編集</button>
+				</form>
+
+				<form th:action="@{/article/delete/{id}(id=${article.articleId})}" method="post">
+					<button type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+				</form>
+			</div>
+		</div>
+
+		<h2>[[${article.title}]]</h2>
+		<small th:text="${#temporals.format(article.publishedAt, 'yyyy年MM月dd日')}"></small>
+
+		<p>[[${article.content}]]</p>
+		
+		
+		<a th:href="@{/article/list}">
+			<button type="button">戻る</button>
+		</a>
+
+
+
+	</div>
+
+</body>
+
+</html>
