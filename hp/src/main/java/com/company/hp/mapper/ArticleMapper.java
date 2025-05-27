@@ -32,5 +32,16 @@ public interface ArticleMapper {
 	 * @return
 	 */
 	ArticleDataDto findArticleData(@Param("articleId") int articleId);
+	
+	/**
+	 * 記事情報更新
+	 */
+	void editArticle(ArticleDataDto articleDataDto);
+	
+	
+	/**
+	 * 記事論理削除
+	 */
+	void deleteArticle(ArticleDataDto articleDataDto);
 
 }
